@@ -43,4 +43,8 @@ def f_items(request,id: int):
             <strong>Наименование</strong>: <i>{i['name']}</i><br>
             <strong>Количество</strong>: <i>{i['quantity']}</i><br>
             """
+    if text == "":
+        text = f"""
+        <i>Товар с id= {id} не найден</i>
+        """     
     return HttpResponse(text)
