@@ -56,3 +56,11 @@ def items_list(request):
         text += f"""<li><a href = '/item/{i["id"]}'>{i['name']}</a></li>""" 
     text+="</ol>"
     return HttpResponse(text)
+
+def main(request) -> HttpResponse:
+    context = {
+        "name": "Иванов Иван Петрович",
+        "email": "my_mail@mail.ru"
+
+    }
+    return render(request,'index.html', context)
