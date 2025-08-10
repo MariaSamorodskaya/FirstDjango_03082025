@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 
@@ -36,31 +36,24 @@ def author(request):
 
 
 def f_items(request,id: int):
-    text=""
     for i in items:
         if i["id"] == id:
-            text = f"""
-            <strong>Наименование</strong>: <i>{i['name']}</i><br>
-            <strong>Количество</strong>: <i>{i['quantity']}</i><br>
-            """
-    if text == "":
-        text = f"""
-        <i>Товар с id= {id} не найден</i>
-        """     
-    text += "<p><a href = '/items'> Назад к списку товаров</a></p>"
-    return HttpResponse(text)
+            context = i
+            return render(request,'item_page.html', context)
+    text = f"""
+            <i>Товар с id= {id} не найден</i>
+            <p><a href = '/items'> Назад к списку товаров</a></p>
+            """     
+    return HttpResponseNotFound(text)             
 
 def items_list(request):
-    text="<ol>"
-    for i in items:
-        text += f"""<li><a href = '/item/{i["id"]}'>{i['name']}</a></li>""" 
-    text+="</ol>"
-    return HttpResponse(text)
+    context = {"items": items}
+    return render(request, "items_list.html", context)
+
 
 def main(request) -> HttpResponse:
     context = {
         "name": "Иванов Иван Петрович",
         "email": "my_mail@mail.ru"
-
     }
     return render(request,'index.html', context)
