@@ -47,11 +47,12 @@ def f_items(request,id: int):
         text = f"""
         <i>Товар с id= {id} не найден</i>
         """     
+    text += "<p><a href = '/items'> Назад к списку товаров</a></p>"
     return HttpResponse(text)
 
-def f_items(request):
+def items_list(request):
     text="<ol>"
     for i in items:
-        text += f"""<li><i>{i['name']}</i></li>""" 
+        text += f"""<li><a href = '/item/{i["id"]}'>{i['name']}</a></li>""" 
     text+="</ol>"
     return HttpResponse(text)
