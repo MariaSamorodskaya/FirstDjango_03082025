@@ -48,3 +48,10 @@ def f_items(request,id: int):
         <i>Товар с id= {id} не найден</i>
         """     
     return HttpResponse(text)
+
+def f_items(request):
+    text="<ol>"
+    for i in items:
+        text += f"""<li><i>{i['name']}</i></li>""" 
+    text+="</ol>"
+    return HttpResponse(text)
