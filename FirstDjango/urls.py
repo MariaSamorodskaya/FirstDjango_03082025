@@ -3,5 +3,6 @@ from MainApp import views
 
 urlpatterns = [
     path('', views.home),
-    path('about', views.author)
+    path('about', views.author),
+    path('item/<int:id>', views.f_items),
 ]

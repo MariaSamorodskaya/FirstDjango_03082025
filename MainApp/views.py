@@ -3,6 +3,14 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+items = [
+        {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
+        {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
+        {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
+        {"id": 7, "name": "Картофель фри" ,"quantity":0},
+        {"id": 8, "name": "Кепка" ,"quantity":124},
+    ]
+
 def home(request):
     text = """
     <h1>"Изучаем django"</h1>
@@ -25,3 +33,14 @@ def author(request):
             f"<strong>e-mail</strong>: <i>{dict1['e-mail']}</i><br>"
     )                                               
     return HttpResponse(text1)
+
+
+def f_items(request,id: int):
+    text=""
+    for i in items:
+        if i["id"] == id:
+            text = f"""
+            <strong>Наименование</strong>: <i>{i['name']}</i><br>
+            <strong>Количество</strong>: <i>{i['quantity']}</i><br>
+            """
+    return HttpResponse(text)
