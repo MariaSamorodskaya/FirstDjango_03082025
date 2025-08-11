@@ -6,4 +6,5 @@ urlpatterns = [
     path('about', views.author),
     path('item/<int:id>', views.f_items),
     path('items', views.items_list),
+
 ]

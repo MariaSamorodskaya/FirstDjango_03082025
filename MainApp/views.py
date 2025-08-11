@@ -26,6 +26,9 @@ def author(request):
      "e-mail": "vasya@mail.ru"
      }
     text1 = (
+            f"<a href = '/'>Домашняя /</a>"
+            f"<a href = '/items'>Список товаров /</a>"
+            f"<a href = '/about'>Об авторе</a><br><br>"
             f"<strong>Имя</strong>: <i>{dict1["name"]}</i><br>"
             f"<strong>Отчество</strong>: <i>{dict1["patronymic"]}</i><br>"
             f"<strong>Фамилия</strong>: <i>{dict1["surname"]}</i><br>"

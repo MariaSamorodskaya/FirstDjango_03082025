@@ -6,6 +6,11 @@
     <title>Items list</title>
 </head>
 <body>
+    <a href = '/'>Домашняя /</a>
+    <a href = '/items'>Список товаров /</a>
+    <a href = '/about'>Об авторе</a><br><br>
+
+    <p>Список товаров:</p>
     <ol>
     {% for el in items%}
         <li><a href = '/item/{{el.id}}'>{{el.name}}</a></li>
