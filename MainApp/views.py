@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from .models import Item
 
 # Create your views here.
 
+"""
 items = [
         {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
         {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
@@ -10,6 +12,7 @@ items = [
         {"id": 7, "name": "Картофель фри" ,"quantity":0},
         {"id": 8, "name": "Кепка" ,"quantity":124},
     ]
+"""
 
 def home(request):
     text = """
@@ -29,18 +32,18 @@ def author(request):
     return render(request, "about.html", context)
 
 
-def f_items(request,id: int):
-    for i in items:
-        if i["id"] == id:
-            context = i
-            return render(request,'item_page.html', context)
-    text = f"""
-            <i>Товар с id= {id} не найден</i>
-            <p><a href = '/items'> Назад к списку товаров</a></p>
-            """     
-    return HttpResponseNotFound(text)             
+def f_items(request,id_arg: int):
+    try:
+        items=Item.objects.get(id=id_arg)
+        context = {"items": items}
+        return render(request,'item_page.html', context)
+  
+    except:
+        context = {"id": id_arg}
+        return render(request, "errors.html",context)
 
 def items_list(request):
+    items = Item.objects.all()
     context = {"items": items}
     return render(request, "items_list.html", context)
 

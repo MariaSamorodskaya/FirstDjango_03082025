@@ -10,12 +10,12 @@
     <a href = '/items'>Список товаров /</a>
     <a href = '/about'>Об авторе</a><br><br>
 
-    <strong>Наименование</strong>: <i>{{name}}</i><br>
+    <strong>Наименование</strong>: <i>{{items.name}}</i><br>
     <strong>Количество</strong>: <i>
-        {% if quantity == 0 %}
+        {% if items.count == 0 %}
             <i>Товар отсутствует.</i>
         {% else %}
-            {{quantity}}</i><br> 
+            {{items.count}}</i><br> 
         {% endif %}
     <p><a href = '/items'> Назад к списку товаров</a></p>   
 </body>

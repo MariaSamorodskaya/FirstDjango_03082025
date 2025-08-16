@@ -4,9 +4,10 @@ from MainApp import views
 urlpatterns = [
     path('', views.main),
     path('about', views.author),
-    path('item/<int:id>', views.f_items),
+    path('item/<int:id_arg>', views.f_items),
     path('items', views.items_list),
     path('about', views.author),
+
 
 
 ]
