@@ -23,19 +23,10 @@ def author(request):
      "patronymic": "Петрович",
      "surname": "Иванов",
      "phone": "8-923-600-01-02",
-     "e-mail": "vasya@mail.ru"
+     "email": "vasya@mail.ru"
      }
-    text1 = (
-            f"<a href = '/'>Домашняя /</a>"
-            f"<a href = '/items'>Список товаров /</a>"
-            f"<a href = '/about'>Об авторе</a><br><br>"
-            f"<strong>Имя</strong>: <i>{dict1["name"]}</i><br>"
-            f"<strong>Отчество</strong>: <i>{dict1["patronymic"]}</i><br>"
-            f"<strong>Фамилия</strong>: <i>{dict1["surname"]}</i><br>"
-            f"<strong>Телефон</strong>: <i>{dict1['phone']}</i><br>"
-            f"<strong>e-mail</strong>: <i>{dict1['e-mail']}</i><br>"
-    )                                               
-    return HttpResponse(text1)
+    context={"dict1":dict1}
+    return render(request, "about.html", context)
 
 
 def f_items(request,id: int):
