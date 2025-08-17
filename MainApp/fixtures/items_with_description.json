@@ -1,0 +1,52 @@
+[
+{
+    "model": "MainApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Кроссовки",
+        "brand": "abibas",
+        "count": 10,
+        "description": "Классные кроссы"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Куртка кожаная",
+        "brand": "nuke",
+        "count": 2,
+        "description": "Модная"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Coca-cola 1 литр",
+        "brand": "Coca-cola",
+        "count": 12,
+        "description": "Классическая кола"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Картофель фри",
+        "brand": "fun potato",
+        "count": 0,
+        "description": "Хрустящая картошка"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 5,
+    "fields": {
+        "name": "Кепка",
+        "brand": "Cap",
+        "count": 124,
+        "description": "Удобная"
+    }
+}
+]
