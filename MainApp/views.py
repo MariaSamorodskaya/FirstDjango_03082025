@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from .models import Item
+from MainApp.models import Item
 
 # Create your views here.
 
