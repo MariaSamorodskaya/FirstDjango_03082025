@@ -4,18 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Items list</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .items{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 200px);
+            max-width: 1200px;
+            justify-content: center;
+            justify-items: center;
+            column-gap: 30px;
+            row-gap: 40px;
+            margin: 0 auto;
+        }
+
+        .item {
+            width: 200px;
+            border: 3px solid blue;
+            background: rgba(73, 171, 189, 0.63)
+        }
+        .item a{
+            text-decoration: none;
+            color: blue;
+            text-align: justify;
+        }
+        .item h1 {
+            font-size: 18px;
+        }
+
+
+    </style>
 </head>
+
 <body>
     / <a href = '/'>Домашняя /</a>
     <a href = '/items'>Список товаров /</a>
     <a href = '/about'>Об авторе</a><br><br>
 
+    
     <p>Список товаров:</p>
-    <ol>
+
+    <div class= "items">
     {% for el in items%}
-        <li><a href = '/item/{{el.id}}'>{{el.name}}</a></li>
+        <div class= "item">
+            <a href = '/item/{{el.id}}'>
+                <h1>{{el.name}}</h1>
+                <p>Описание товара:</p>
+                <p>{{el.description}}</p>
+            </a>
+        </div>
     {% endfor%}
-    </ol>    
+    </div>    
 
 </body>
 </html>
