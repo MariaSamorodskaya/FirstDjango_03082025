@@ -6,9 +6,9 @@
     <title>Item page</title>
 </head>
 <body>
-    <a href = '/'>Домашняя /</a>
-    <a href = '/items'>Список товаров /</a>
-    <a href = '/about'>Об авторе</a><br><br>
+    <a href = "{% url 'home'%}">Домашняя /</a>
+    <a href = "{% url 'item-list'%}">Список товаров /</a>
+    <a href = "{% url 'author'%}">Об авторе</a><br><br>
 
     <strong>Наименование</strong>: <i>{{items.name}}</i><br>
     <strong>Бренд</strong>: <i>{{items.brand}}</i><br>
@@ -16,7 +16,7 @@
         <i>{{items.count | default:"Товар отсутствует."}}</i><br>
     <strong>Описание товара</strong>: <i>{{items.description}}</i><br>
 
-    <p><a href = '/items'> Назад к списку товаров</a></p>   
+    <p><a href = "{% url 'item-list'%}"> Назад к списку товаров</a></p>   
 </body>
 </html>
 

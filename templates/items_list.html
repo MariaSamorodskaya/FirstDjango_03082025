@@ -40,9 +40,9 @@
 </head>
 
 <body>
-    / <a href = '/'>Домашняя /</a>
-    <a href = '/items'>Список товаров /</a>
-    <a href = '/about'>Об авторе</a><br><br>
+    / <a href = "{% url 'home'%}">Домашняя /</a>
+    <a href = "{% url 'item-list'%}">Список товаров /</a>
+    <a href = "{% url 'author'%}">Об авторе</a><br><br>
 
     
     <p>Список товаров:</p>
@@ -50,7 +50,7 @@
     <div class= "items">
     {% for el in items%}
         <div class= "item">
-            <a href = '/item/{{el.id}}'>
+            <a href = "{% url 'item-detail' el.id%}">
                 <h1>{{el.name}}</h1>
                 <p>Описание товара:</p>
                 <p>{{el.description}}</p>
