@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-            <a href = "{% url 'home'%}">Домашняя /</a>
-            <a href = "{% url 'item-list'%}">Список товаров /</a>
-            <a href = "{% url 'author'%}">Об авторе</a><br><br>
+{% extends "base.html" %}
+
+{% block title %} About {% endblock  %}
+
+{% block content %}
+
+<br>
             <strong>Имя</strong>: <i>{{dict1.name}}</i><br>
             <strong>Отчество</strong>: <i>{{dict1.patronymic}}</i><br>
             <strong>Фамилия</strong>: <i>{{dict1.surname}}</i><br>
             <strong>Телефон</strong>: <i>{{dict1.phone}}</i><br>
             <strong>e-mail</strong>: <i>{{dict1.email}}</i><br>
-</body>
-</html>
+
+{% endblock %}

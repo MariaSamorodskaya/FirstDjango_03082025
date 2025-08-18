@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item page</title>
-</head>
-<body>
-    <a href = "{% url 'home'%}">Домашняя /</a>
-    <a href = "{% url 'item-list'%}">Список товаров /</a>
-    <a href = "{% url 'author'%}">Об авторе</a><br><br>
+{% extends "base.html" %}
 
+{% block title %} Item page {% endblock  %}
+
+{% block content %}
+<br>
     <strong>Наименование</strong>: <i>{{items.name}}</i><br>
     <strong>Бренд</strong>: <i>{{items.brand}}</i><br>
     <strong>Количество</strong>: 
         <i>{{items.count | default:"Товар отсутствует."}}</i><br>
     <strong>Описание товара</strong>: <i>{{items.description}}</i><br>
 
-    <p><a href = "{% url 'item-list'%}"> Назад к списку товаров</a></p>   
-</body>
-</html>
+{% endblock  %}
 
 
