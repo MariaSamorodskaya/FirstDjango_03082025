@@ -9,6 +9,14 @@
     <strong>Количество</strong>: 
         <i>{{items.count | default:"Товар отсутствует."}}</i><br>
     <strong>Описание товара</strong>: <i>{{items.description}}</i><br>
+    <strong>Цвета:</strong>
+    <ul>
+    {% for el in item_colors %}
+        <li style = "list-style-type: square; color: {{el.name}}">
+            <span style = "color: black">{{el.name}}</span>
+        </li>
+    {% endfor %}
+    </ul>
 
 {% endblock  %}
 

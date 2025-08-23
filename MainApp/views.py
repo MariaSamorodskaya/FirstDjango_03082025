@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from MainApp.models import Item
+from MainApp.models import Item, Color
 
 # Create your views here.
 
@@ -35,9 +35,10 @@ def author(request):
 def f_items(request,id_arg: int):
     try:
         items=Item.objects.get(id=id_arg)
-        context = {"items": items}
+        item_colors=items.colors.all()
+        context = {"items": items, "item_colors": item_colors}
         return render(request,'item_page.html', context)
-  
+    
     except:
         context = {"id": id_arg}
         return render(request, "errors.html",context)
@@ -54,3 +55,4 @@ def main(request) -> HttpResponse:
         "email": "my_mail@mail.ru"
     }
     return render(request,'index.html', context)
+
